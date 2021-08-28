@@ -1,17 +1,20 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {ButtonModule} from 'primeng-lts/button';
+
 
 const primeFacesModules = [
   // MODULES AQUI
+  ButtonModule,
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    //...primeFacesModules
+    ...primeFacesModules
   ],
   exports: [
-    //...primeFacesModules
+    ...primeFacesModules
   ],
   providers: [
     //{provide: DateAdapter, useClass: CustomDateAdapter},
