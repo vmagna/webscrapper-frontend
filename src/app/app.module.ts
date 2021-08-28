@@ -13,6 +13,7 @@ import {NotFoundModule} from './modules/not.found/not.found.module';
 //registerLocaleData(ptBr);
 
 import {LoaderComponent} from './loader.component/loader.component';
+import {PrimeFacesModule} from "./shared/prime.faces.module";
 //import {SharedModule} from './shared/shared.module';
 // import {ToastrModule} from 'ngx-toastr';
 //import {NgxCurrencyModule} from 'ngx-currency';
@@ -22,21 +23,22 @@ import {LoaderComponent} from './loader.component/loader.component';
     AppComponent,
     LoaderComponent
   ],
-  imports: [
-    CoreModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    imports: [
+        CoreModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
 
-    //SharedModule,
+        //SharedModule,
 
-    //ToastrModule.forRoot(),
-    //NgxCurrencyModule.forRoot(MASK_SAQUE),
-    ModulesModule,
+        //ToastrModule.forRoot(),
+        //NgxCurrencyModule.forRoot(MASK_SAQUE),
+        ModulesModule,
 
-    DashboardModule,
-    NotFoundModule,
-  ],
+        DashboardModule,
+        NotFoundModule,
+        PrimeFacesModule,
+    ],
   providers: [
     {
       provide: DEFAULT_CURRENCY_CODE,
