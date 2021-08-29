@@ -148,10 +148,6 @@
       "app",
       "kebab-case"
     ],
-    "compilerOptions": {
-      "paths": {
-        "primeng/*": ["node_modules/primeng-lts/*"]
-      }
-    }
+
   }
 }

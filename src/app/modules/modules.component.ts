@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
-// import { PrimeNGConfig } from 'primeng-lts/api';
+// import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-modules',

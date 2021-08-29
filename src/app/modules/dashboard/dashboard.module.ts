@@ -10,11 +10,11 @@ import {RouterModule} from '@angular/router';
     DashboardComponent,
   ],
   entryComponents: [],
-    imports: [
-        CommonModule,
-        SharedModule,
-        RouterModule,
-    ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+  ],
   providers: [
     DashboardService
   ],

@@ -1,0 +1,24 @@
+
+
+:host ::ng-deep .ui-button.ui-button-icon-only {
+  width:40.72px;
+  height:40.72px;
+}
+:host ::ng-deep .ui-menubar {
+  border-radius: 0;
+//  background: transparent;
+  display: inline-block;
+  border:none;
+}
+
+:host ::ng-deep .ui-menubar .ui-menuitem-link:active,
+:host ::ng-deep .ui-menubar .ui-menuitem-link:focus {
+  outline: none;
+  box-shadow:none;
+  background: rgba(255,255,255,0.05);
+}
+
+
+.menu-application {
+  background: #222222;
+}

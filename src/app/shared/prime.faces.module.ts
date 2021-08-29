@@ -1,23 +1,49 @@
 import {CommonModule} from '@angular/common';
+// @ts-ignore
 import {NgModule} from '@angular/core';
-import {ButtonModule} from 'primeng-lts/button';
-import {MenuModule} from 'primeng-lts/menu';
-import {MegaMenuModule} from 'primeng-lts/megamenu';
-import {ToolbarModule} from 'primeng-lts/toolbar';
-import {MenubarModule} from 'primeng-lts/menubar';
-import {ChartModule, FullCalendarModule, ProgressSpinnerModule, VirtualScrollerModule} from "primeng-lts";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {MegaMenuModule} from "primeng/megamenu";
+import {ToolbarModule} from "primeng/toolbar";
+import {MenubarModule} from "primeng/menubar";
+import {ButtonModule} from "primeng/button";
+import {ChartModule} from "primeng/chart";
+import {VirtualScrollerModule} from "primeng/virtualscroller";
+import {FullCalendarModule} from "primeng/fullcalendar";
+import {TooltipModule} from "primeng/tooltip";
+import {SidebarModule} from "primeng/sidebar";
+import {InputTextModule} from "primeng/inputtext";
+import {CalendarModule} from "primeng/calendar";
+import {AutoCompleteModule} from "primeng/autocomplete";
+import {ChipsModule} from "primeng/chips";
+import {DropdownModule} from "primeng/dropdown";
+import {InputMaskModule} from "primeng/inputmask";
+import {InputNumberModule} from "primeng/inputnumber";
+import {MultiSelectModule} from "primeng/multiselect";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {ListboxModule} from "primeng/listbox";
 
 const primeFaces = [
-  // MODULES AQUI
   ProgressSpinnerModule,
-  MenuModule,
   MegaMenuModule,
   ToolbarModule,
   MenubarModule,
   ButtonModule,
   ChartModule,
   VirtualScrollerModule,
-  FullCalendarModule
+  FullCalendarModule,
+  TooltipModule,
+  SidebarModule,
+  InputTextModule,
+  CalendarModule,
+  AutoCompleteModule,
+  ChipsModule,
+  DropdownModule,
+  InputMaskModule,
+  InputNumberModule,
+  MultiSelectModule,
+  InputTextareaModule,
+  InputTextModule,
+  ListboxModule,
 ];
 
 // @ts-ignore
@@ -35,5 +61,4 @@ const primeFaces = [
     //{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
   ]
 })
-
 export class PrimeFacesModule {}
