@@ -12,10 +12,10 @@ import {RouterModule} from '@angular/router';
   exports: [
     AdminLayoutComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule,
-  ]
+    imports: [
+        CommonModule,
+        SharedModule,
+        RouterModule,
+    ]
 })
 export class AdminLayoutModule { }
