@@ -1,6 +1,5 @@
 @import "../node_modules/primeng/resources/primeng.min.css";
 @import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/primeflex/primeflex.css";
 
 // THEMA
 //@import '../node_modules/primeng-lts/resources/themes/luna-amber/theme.css';
@@ -14,4 +13,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: #222;
+  color: #fff;
 }
+
+

@@ -1,20 +1,33 @@
 <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-  <h1 style="font-weight:normal">Opções</h1>
-
-  <p-button type="button" (click)="visibleSidebar1 = false"
-            label="Save" styleClass="p-button-success"></p-button>
-
-  <p-button type="button" (click)="visibleSidebar1 = false" label="Cancel"
-            styleClass="p-button-secondary"></p-button>
-
-</p-sidebar>
+  <img src="./assets/img/monitorador.png"
+       alt="Logo" class="logo-webscrapper">
+  <div class="p-mt-4">
+    <p-panelMenu [transitionOptions]="'0ms'"
+                 [model]="items"></p-panelMenu>
+  </div>
+</p-sidebar><!-- Final menu movel -->
 
 
 <div class="p-d-flex p-flex-row menu-application">
+  <div class="p-d-block p-d-lg-none p-d-xl-block">
     <button pButton pRipple type="button" icon="pi pi-bars" (click)="toggle()"
-            class="p-button-rounded p-button-warning buttonToggleNG"></button>
+            class="p-button-rounded p-button-success buttonToggleNG p-mt-2 p-mr-3 p-ml-3"></button>
+  </div>
+
+  <img src="./assets/img/monitorador.png" alt="Logo" class="logo-webscrapper p-ml-3 p-mr-4 p-mt-1">
+
+  <div class="p-d-none p-d-lg-block p-d-xl-block">
     <p-menubar [model]="items"></p-menubar>
+  </div>
 </div>
 
 
-<router-outlet></router-outlet>
+<div class="body-webscrapper">
+  <div class="webscrapper-content">
+    <div class="p-d-flex p-jc-center">
+      <div class="p-col-12">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

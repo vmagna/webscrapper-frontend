@@ -35,7 +35,8 @@ export class AppComponent {
       })
     ).subscribe((data: any) => {
       if (data) {
-        this.titleService.setTitle(data + ' - Valida Carro');
+        this.titleService.setTitle(data +
+          ' - Monitorador Status NF-e');
       }
     });
 

@@ -1,109 +1,46 @@
-<div class="grid">
+<div class="p-d-block p-pb-4">
 
-  <div class="mt-7 mb-3 ml-6 mr-6">
-    <div class="field">
-        <span class="float-label">
-            <p-calendar [(ngModel)]="filtro.dtInicio" [showTime]="true" (onSelect)="changeFiltro()"
-                        inputId="dtInicio" id="dtInicio"></p-calendar>
-            <label for="dtInicio">Data/ Hora início</label>
-        </span>
+  <div class="p-4 card-date">
+    <div class="p-d-flex p-flex-wrap-reverse">
+      <div class="p-col-12 p-md-3 p-xs-6">
+        <div class="p-float-label">
+          <p-calendar inputId="dtInicio" id="dtInicio" [showTime]="true"
+                      [(ngModel)]="filtro.dtInicio"></p-calendar>
+          <label for="dtInicio">Data/ Hora início</label>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-3 p-xs-6">
+        <div class="p-float-label">
+          <p-calendar [(ngModel)]="filtro.dtFim" [showTime]="true" inputId="dtFim" id="dtFim"></p-calendar>
+          <label for="dtFim">Data/ Hora final</label>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="mt-7 mb-3 ml-6 mr-6">
-    <div class="field">
-        <span class="float-label">
-            <p-calendar [(ngModel)]="filtro.dtFim" [showTime]="true" (onSelect)="changeFiltro()"
-                        inputId="dtFinal" id="dtFinal"></p-calendar>
-            <label for="dtFinal">Data/ Hora final</label>
-        </span>
-    </div>
-  </div>
-
 </div>
 
-<div class="grid">
-  <div class="mt-3 mb-3 ml-6 mr-3">
-    <p-listbox [options]="estadosSelect" (onClick)="changeFiltro()"
-               [(ngModel)]="filtro.estado"></p-listbox>
-  </div>
+<div>
+  <p-card>
+    <div class="p-d-flex p-mb-8">
 
-  <div class="mt-3 mb-3 ml-4 mr-4">
-    Item 2 resultados aqui
-    <!-- RESULTADOS AQUI -->
-  </div>
+      <div class="p-field p-col-12 p-md-3">
+        <p-listbox [options]="estadosSelect" (onClick)="changeFiltro()"
+                   [(ngModel)]="filtro.estado"></p-listbox>
+      </div>
 
-</div>
+      <div class="p-d-flex p-col-12 p-md-9">
+        <p>Content</p>
+      </div>
 
+    </div><!-- final row calendario -->
 
-
-<div class="p-fluid p-grid">
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText [(ngModel)]="value1">
-            <label for="inputtext">InputText</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-autoComplete inputId="autocomplete" [(ngModel)]="value2"
-                            [suggestions]="filteredCountries"
-                            (completeMethod)="searchCountry($event)" field="name"></p-autoComplete>
-            <label class="ui-float-label">AutoComplete</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-calendar inputId="calendar" [(ngModel)]="value3"></p-calendar>
-            <label for="calendar">Calendar</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
-            <label for="chips">Chips</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-inputMask inputId="inputmask" mask="99/99/9999" [(ngModel)]="value5"></p-inputMask>
-            <label for="inputmask">InputMask</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-inputNumber inputId="inputnumber" [(ngModel)]="value6"></p-inputNumber>
-            <label for="inputnumber">InputNumber</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-    <div class="p-inputgroup">
-            <span class="p-inputgroup-addon">
-                <i class="pi pi-user"></i>
-            </span>
-      <span class="p-float-label">
-                <input type="text" id="inputgroup" pInputText [(ngModel)]="value7">
-                <label for="inputgroup">InputGroup</label>
-            </span>
+    <div class="p-d-flex p-flex-wrap-reverse p-mb-8">
+      <div class="p-mr-2 p-mb-2">Item 1</div>
+      <div class="p-mr-2 p-mb-2">Item 2</div>
+      <div class="p-mr-2 p-mb-2">Item 3</div>
+      <div class="p-mr-2 p-mb-2">Item 4</div>
+      <div class="p-mr-2 p-mb-2">Item 5</div>
+      <div class="p-mr-2 p-mb-2">Item 6</div>
     </div>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="cities" [(ngModel)]="value8" optionLabel="name"></p-dropdown>
-            <label for="dropdown">Dropdown</label>
-        </span>
-  </div>
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <p-multiSelect inputId="multiselect" [options]="cities" [(ngModel)]="value9" optionLabel="name" [filter]="false"></p-multiSelect>
-            <label for="multiselect">MultiSelect</label>
-        </span>
-  </div>
-
-  <div class="p-field p-col-12 p-md-4">
-        <span class="p-float-label">
-            <textarea inputId="textarea" rows="3" cols="30" [(ngModel)]="value10" pInputTextarea></textarea>
-            <label for="textarea">Textarea</label>
-        </span>
-  </div>
+  </p-card>
 </div>

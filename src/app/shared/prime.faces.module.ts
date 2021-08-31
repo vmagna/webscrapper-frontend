@@ -21,6 +21,8 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {MultiSelectModule} from "primeng/multiselect";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {ListboxModule} from "primeng/listbox";
+import {CardModule} from "primeng/card";
+import {PanelMenuModule} from "primeng/panelmenu";
 
 const primeFaces = [
   ProgressSpinnerModule,
@@ -44,6 +46,8 @@ const primeFaces = [
   InputTextareaModule,
   InputTextModule,
   ListboxModule,
+  CardModule,
+  PanelMenuModule
 ];
 
 // @ts-ignore

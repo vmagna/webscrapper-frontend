@@ -95,8 +95,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/quill/dist/quill.core.css",
-              "node_modules/primeflex/primeflex.css"
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/primeflex/primeflex.css",
+              "./node_modules/primeflex/src/_flexbox.css",
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js"
