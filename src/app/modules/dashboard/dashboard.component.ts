@@ -21,13 +21,7 @@ export class DashboardComponent implements OnInit {
   ];
 
   dataAtual = new Date();
-  objetoBusca: any = {
-    dtInicio:  new Date(this.dataAtual.getFullYear(), this.dataAtual.getMonth(), 1),
-    dtFim: new Date(),
-    estado: {
-      label: this.estadosSelect[0]
-    }
-  };
+  objetoBusca: any;
 
   listHistorico: any[];
 
@@ -38,9 +32,14 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.filtroPadrao();
     this.verificarStorage();
     this.createForm();
     this.getBuscaHistorico();
+
+    this.searchHistorico.valueChanges.subscribe(() => {
+      this.getBuscaHistorico();
+    });
   }
 
   get objetosearch() {
@@ -51,20 +50,30 @@ export class DashboardComponent implements OnInit {
     sessionStorage.setItem(DashboardComponent.OBJETOSEARCH, JSON.stringify(objBusca));
   }
 
-  changeFiltro() {
-    console.log(this.objetoBusca);
+  filtroPadrao(): void {
+    let dataAtual = new Date();
+    this.objetoBusca = {
+      dtInicio:  new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 1),
+      dtFim: new Date(),
+      estado: {
+        label: this.estadosSelect[0]
+      }
+    };
   }
 
   getBuscaHistorico(): void {
     this.setToObjectSearch();
     this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
       this.listHistorico = result.data;
+      console.log(result.data);
     });
   }
 
   verificarStorage(): void {
     if (this.objetosearch) {
       this.objetoBusca = JSON.parse(this.objetosearch);
+      this.objetoBusca.dtInicio = new Date(this.objetoBusca.dtInicio);
+      this.objetoBusca.dtFim = new Date(this.objetoBusca.dtFim);
     }
   }
 
