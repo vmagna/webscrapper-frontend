@@ -55,9 +55,7 @@ export class DashboardComponent implements OnInit {
     this.objetoBusca = {
       dtInicio:  new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 1),
       dtFim: new Date(),
-      autorizador: {
-        label: this.autorizadorsSelect[0]
-      }
+      autorizador: this.autorizadorsSelect[0].value
     };
   }
 

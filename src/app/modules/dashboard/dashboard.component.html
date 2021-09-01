@@ -24,13 +24,30 @@
 
       <div class="p-col-12 p-lg-3 p-xl-3 card-background">
         <div class="p-field p-md-3" style="width:100%;">
-          <p-listbox [options]="estadosSelect" formControlName="autorizador"></p-listbox>
+          <p-listbox [options]="estadosSelect"
+                     formControlName="autorizador"></p-listbox>
         </div>
       </div>
 
       <div class="p-col-12 p-lg-9 p-xl-9 card-background">
         <div class="p-d-flex card-background content-results">
-          <p>Content</p>
+<!--          <p>Content</p>-->
+          <div class="p-grid">
+            <div *ngFor="let hist of listHistorico" class="p-col-12">
+
+              <span>{{hist.autorizador}}</span>&nbsp;
+
+              <span>{{hist.autorizacao4}}</span>&nbsp;
+              <span>{{hist.consultaCadastro4}}</span>&nbsp;
+              <span>{{hist.consultaProtocolo4}}</span>&nbsp;
+              <span>{{hist.inutilizacao4}}</span>&nbsp;
+              <span>{{hist.recepcaoEventos4}}</span>&nbsp;
+
+              <span>{{hist.horaAtualizacao}}</span>&nbsp;
+
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
