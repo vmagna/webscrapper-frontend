@@ -11,6 +11,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {}
 
   getHistoricoSearch(object: any): Observable<any> {
+    object.autorizador = object.autorizador.value;
     return this.http.post<any>(this.BASE_URL + 'search', object);
   }
 
