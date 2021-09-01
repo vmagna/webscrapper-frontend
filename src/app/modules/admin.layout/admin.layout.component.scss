@@ -10,7 +10,6 @@
   background: none;
 }
 
-
 :host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus,
 :host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link-active,
 :host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link-active span {
@@ -21,31 +20,29 @@
   color: #C5E1A5 !important
 }
 
-:host ::ng-deep .p-card {
-  //display: block !important;
-  //background: red !important;
-  //padding: 0 !important;
-  //margin:0 !important;
-  //height: inherit;
+:host ::ng-deep .p-calendar {
+  width:100%;
 }
 
+:host ::ng-deep .p-grid {
+  margin:0;
+}
 
+:host ::ng-deep .p-col-* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 .menu-application {
   background: rgba(255,255,255,0.1);
 }
 
-
-
-
 .logo-webscrapper {
   width: 120px;
   height: 50px;
-  //height: auto;
   display: block;
 }
-
-//.buttonToggleNG {}
 
 .body-webscrapper {
   width: 100%;
@@ -55,7 +52,6 @@
   background: #222222;
 }
 
-
 .webscrapper-content {
   width: 90%;
   display: block;
@@ -63,7 +59,6 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .webscrapper-content {

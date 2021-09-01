@@ -5,11 +5,13 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class DashboardService {
-  private BASE_URL = environment.apiUrl;
+
+  private BASE_URL = environment.apiUrl + "historico-api/";
 
   constructor(private http: HttpClient) {}
 
-  getCharts(idChart: any): Observable<any> {
-    return this.http.get<any>(this.BASE_URL + 'chart?id=' + idChart);
+  getHistoricoSearch(object: any): Observable<any> {
+    return this.http.post<any>(this.BASE_URL + 'search', object);
   }
+
 }

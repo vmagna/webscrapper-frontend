@@ -1,39 +1,39 @@
-<div class="p-grid">
+<form [formGroup]="searchHistorico"
+      (ngSubmit)="getBuscaHistorico()" autocomplete="off">
 
-  <div class="p-col-12 p-grid card-background date">
-    <div class="p-col-sm-12 p-col-md-3 p-col-lg-3 p-col-xl-3 p-mr-4">
-      <div class="p-float-label">
-        <p-calendar inputId="dtInicio" id="dtInicio" [showTime]="true"
-                    [(ngModel)]="filtro.dtInicio"></p-calendar>
-        <label for="dtInicio">Data/ Hora início</label>
-      </div>
-    </div>
-    <div class="p-col-sm-12 p-col-md-3 p-col-lg-3 p-col-xl-3 p-mr-4">
-      <div class="p-float-label">
-        <p-calendar [(ngModel)]="filtro.dtFim" [showTime]="true" inputId="dtFim" id="dtFim"></p-calendar>
-        <label for="dtFim">Data/ Hora final</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="p-col-12 p-grid p-mt-2">
-
-    <div class="p-col-sm-12 p-col-xl-4 p-col-lg-4 p-col-md-4">
-      <div class="p-d-flex card-background">
-        <div class="p-field p-md-3" style="width:100%;">
-          <p-listbox [options]="estadosSelect"
-                     (onClick)="changeFiltro()" [(ngModel)]="filtro.estado"></p-listbox>
+  <div class="p-grid">
+    <div class="p-col-12">
+      <div class="p-grid p-col-12 card-background">
+        <div class="p-col-12">
+          <h3>Filtro por data:</h3>
+        </div>
+        <div class="p-field p-float-label p-col-12p-lg-3 p-xl-3">
+          <p-calendar inputId="dtInicio" id="dtInicio"
+                      [showTime]="true" formControlName="dtInicio"></p-calendar>
+          <label for="dtInicio">Data/ Hora início</label>
+        </div>
+        <div class="p-field p-float-label p-col-12p-lg-3 p-xl-3">
+          <p-calendar formControlName="dtFim" [showTime]="true"
+                      inputId="dtFim" id="dtFim"></p-calendar>
+          <label for="dtFim">Data/ Hora final</label>
         </div>
       </div>
     </div>
 
-    <div class="p-col-sm-12 p-col-xl-8 p-col-lg-8 p-col-md-8">
-      <div class="p-d-flex card-background">
-        <p>Content</p>
+    <div class="p-col-12 p-grid">
+
+      <div class="p-col-12 p-lg-3 p-xl-3 card-background">
+        <div class="p-field p-md-3" style="width:100%;">
+          <p-listbox [options]="estadosSelect" formControlName="estado"></p-listbox>
+        </div>
+      </div>
+
+      <div class="p-col-12 p-lg-9 p-xl-9 card-background">
+        <div class="p-d-flex card-background content-results">
+          <p>Content</p>
+        </div>
       </div>
     </div>
-
   </div>
 
-
-</div>
+</form>

@@ -4,4 +4,23 @@
   &.date {
     padding: 29px 13px 7px 13px;
   }
+
+  h3 {
+    margin: 0px 0 35px 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  }
+
+  .content-results {
+    border-radius: 3px;
+    border:1px solid #4b4b4b;
+    background: #323232;
+    font-size: 1rem;
+    font-weight: normal;
+    boz-sizing: border-box;
+    margin: 0.5rem;
+  }
+}
+
+:host ::ng-deep .p-field {
+  margin: 0;
 }
