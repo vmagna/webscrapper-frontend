@@ -63,9 +63,10 @@ export class DashboardComponent implements OnInit {
 
   getBuscaHistorico(): void {
     this.setToObjectSearch();
+    console.log("FILTRO BUSCA => ", this.objetoBusca);
     this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
       this.listHistorico = result.data;
-      console.log(result.data);
+      console.log('RESULT DATA => ',result.data);
     });
   }
 
