@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   private static OBJETOSEARCH = 'searchHistorico';
   searchHistorico: FormGroup;
 
-  estadosSelect = [
+  autorizadorsSelect = [
     {label: 'TODOS', value: 0},
     {label: 'AM', value: 1},
     {label: 'BA', value: 2},
@@ -55,8 +55,8 @@ export class DashboardComponent implements OnInit {
     this.objetoBusca = {
       dtInicio:  new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 1),
       dtFim: new Date(),
-      estado: {
-        label: this.estadosSelect[0]
+      autorizador: {
+        label: this.autorizadorsSelect[0]
       }
     };
   }
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
     this.searchHistorico = this.formBuilder.group({
       dtInicio: [this.objetoBusca.dtInicio, new FormControl()],
       dtFim: [this.objetoBusca.dtFim, new FormControl()],
-      estado: [this.objetoBusca.estado, new FormControl()]
+      autorizador: [this.objetoBusca.autorizador, new FormControl()]
     });
   }
 
@@ -94,7 +94,7 @@ export class DashboardComponent implements OnInit {
     this.objetoBusca = {
       dtInicio: this.searchHistorico.value.dtInicio ? this.getDate(this.searchHistorico.value.dtInicio) : null,
       dtFim: this.searchHistorico.value.dtFim ? this.getDate(this.searchHistorico.value.dtFim) : null,
-      estado: this.searchHistorico.value.estado,
+      autorizador: this.searchHistorico.value.autorizador,
     };
     this.objetosearch = this.objetoBusca;
   }
