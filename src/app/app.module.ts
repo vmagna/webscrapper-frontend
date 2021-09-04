@@ -8,12 +8,13 @@ import {ModulesModule} from './modules/modules.module';
 import {DashboardModule} from './modules/dashboard/dashboard.module';
 import {NotFoundModule} from './modules/not.found/not.found.module';
 
-//import ptBr from '@angular/common/locales/pt';
-//import {registerLocaleData} from '@angular/common';
-//registerLocaleData(ptBr);
+import ptBr from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(ptBr);
 
 import {LoaderComponent} from './loader.component/loader.component';
 import {PrimeFacesModule} from "./shared/prime.faces.module";
+
 //import {SharedModule} from './shared/shared.module';
 // import {ToastrModule} from 'ngx-toastr';
 //import {NgxCurrencyModule} from 'ngx-currency';
@@ -46,7 +47,7 @@ import {PrimeFacesModule} from "./shared/prime.faces.module";
     },
     {
       provide: LOCALE_ID,
-      useValue: 'pt'
+      useValue: 'pt-BR'
     },
   ],
   bootstrap: [AppComponent],

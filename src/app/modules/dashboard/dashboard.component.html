@@ -7,50 +7,47 @@
         <div class="p-col-12">
           <h3>Filtro por data:</h3>
         </div>
-        <div class="p-field p-float-label p-col-12p-lg-3 p-xl-3">
-          <p-calendar inputId="dtInicio" id="dtInicio"
-                      [showTime]="true" formControlName="dtInicio"></p-calendar>
+        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-3">
+          <p-calendar inputId="dtInicio" id="dtInicio" [showTime]="true" timeZone="America/Sao_Paulo"
+                      formControlName="dtInicio"></p-calendar>
           <label for="dtInicio">Data/ Hora início</label>
         </div>
-        <div class="p-field p-float-label p-col-12p-lg-3 p-xl-3">
-          <p-calendar formControlName="dtFim" [showTime]="true"
+        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-3">
+          <p-calendar formControlName="dtFim" [showTime]="true" timeZone="America/Sao_Paulo"
                       inputId="dtFim" id="dtFim"></p-calendar>
           <label for="dtFim">Data/ Hora final</label>
         </div>
       </div>
     </div>
 
-    <div class="p-col-12 p-grid">
+    <div class="p-col-12">
+      <div class="p-grid">
 
-      <div class="p-col-12 p-lg-3 p-xl-3 card-background">
-        <div class="p-field p-md-3" style="width:100%;">
-          <p-listbox [options]="estadosSelect"
-                     formControlName="autorizador"></p-listbox>
-        </div>
-      </div>
-
-      <div class="p-col-12 p-lg-9 p-xl-9 card-background">
-        <div class="p-d-flex card-background content-results">
-<!--          <p>Content</p>-->
-          <div class="p-grid">
-            <div *ngFor="let hist of listHistorico" class="p-col-12">
-
-              <span>{{hist.autorizador}}</span>&nbsp;
-
-              <span>{{hist.autorizacao4}}</span>&nbsp;
-              <span>{{hist.consultaCadastro4}}</span>&nbsp;
-              <span>{{hist.consultaProtocolo4}}</span>&nbsp;
-              <span>{{hist.inutilizacao4}}</span>&nbsp;
-              <span>{{hist.recepcaoEventos4}}</span>&nbsp;
-
-              <span>{{hist.horaAtualizacao}}</span>&nbsp;
-
-            </div>
+        <div class="p-col-12 p-lg-3 p-xl-3 card-background">
+          <div class="p-field p-md-3" style="width:100%;">
+            <p-listbox [options]="autorizadorsSelect" formControlName="autorizador"></p-listbox>
           </div>
-
         </div>
+
+        <div class="p-col-12 p-lg-9 p-xl-9 card-background">
+            <div class="p-grid">
+              <div *ngFor="let hist of listHistorico" class="p-col-12">
+                <span>{{hist.autorizador}}</span>&nbsp;
+                <span>{{hist.autorizacao4}}</span>&nbsp;
+                <span>{{hist.retornoAutorizacao4}}</span>&nbsp;
+                <span>{{hist.inutilizacao4}}</span>&nbsp;
+                <span>{{hist.consultaProtocolo4}}</span>&nbsp;
+                <span>{{hist.statusServico4}}</span>&nbsp;
+                <span>{{hist.tempoMedio}}</span>&nbsp;
+                <span>{{hist.consultaCadastro4}}</span>&nbsp;
+                <span>{{hist.recepcaoEventos4}}</span>&nbsp;
+                <span>{{hist.horaAtualizacao | date: 'dd/MM/yyyy HH:mm:ss'}}</span>&nbsp;
+              </div>
+            </div>
+        </div>
+
       </div>
     </div>
-  </div>
 
+  </div>
 </form>
