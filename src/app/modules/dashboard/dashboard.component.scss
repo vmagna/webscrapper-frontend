@@ -43,3 +43,9 @@
 .VERMELHO {
   background: red;
 }
+
+@media only screen and (max-width: 970px) {
+  .dataFim {
+    margin-top: 40px;
+  }
+}

@@ -12,7 +12,7 @@
                       formControlName="dtInicio"></p-calendar>
           <label for="dtInicio">Data/ Hora início</label>
         </div>
-        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-2">
+        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-2 dataFim">
           <p-calendar formControlName="dtFim" [showTime]="true" timeZone="America/Sao_Paulo"
                       inputId="dtFim" id="dtFim"></p-calendar>
           <label for="dtFim">Data/ Hora final</label>
@@ -35,7 +35,7 @@
 
         <div class="p-col-12 p-lg-9 p-xl-9 card-background">
           <div class="p-grid">
-            <div class="p-col-1">Autorizador</div>&nbsp;
+            <div class="p-col-2">Autorizador</div>&nbsp;
             <div class="p-col-1">Autorização 4</div>
             <div class="p-col-1">Retorno Autorização 4</div>
             <div class="p-col-1">Inutilização 4</div>
@@ -49,7 +49,7 @@
           <div class="p-grid">
               <div *ngFor="let hist of listHistorico"
                    class="p-grid p-col-12">
-                <div class="p-col-1">{{hist.autorizador}}</div>&nbsp;
+                <div class="p-col-2">{{hist.autorizador}}</div>&nbsp;
                 <div class="p-col-1"><span class="{{hist.autorizacao4}}"></span></div>
                 <div class="p-col-1"><span class="{{hist.retornoAutorizacao4}}"></span></div>
                 <div class="p-col-1"><span class="{{hist.inutilizacao4}}"></span></div>

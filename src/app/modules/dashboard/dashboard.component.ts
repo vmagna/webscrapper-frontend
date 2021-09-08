@@ -75,7 +75,7 @@ export class DashboardComponent implements OnInit {
 
   getBuscaHistorico(): void {
     this.setToObjectSearch();
-    console.log("FILTRO BUSCA => ", this.objetoBusca);
+    console.log("FILTRO BUSCA => ", this.objetoBusca.autorizador);
     setTimeout(() => {
       this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
         this.listHistorico = result.data;
@@ -101,20 +101,16 @@ export class DashboardComponent implements OnInit {
   }
 
   getDate(date: any): string {
-    return new Date(date).toISOString(); // .substr(0, 19).split('T')[0]
+    return new Date(date).toISOString();
   }
 
   setToObjectSearch(): void {
-
     this.objetoBusca = {
       dtInicio: this.searchHistorico.value.dtInicio ? this.getDate(this.searchHistorico.value.dtInicio) : null,
       dtFim: this.searchHistorico.value.dtFim ? this.getDate(this.searchHistorico.value.dtFim) : null,
       autorizador: this.searchHistorico.value.autorizador,
     };
     this.objetosearch = this.objetoBusca;
-
-    console.log("AUTORIZADOR=> ", this.searchHistorico.value.autorizador);
-    console.log("obj busca => ", this.objetoBusca);
   }
 
 }
