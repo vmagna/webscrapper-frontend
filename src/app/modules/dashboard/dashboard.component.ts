@@ -75,13 +75,13 @@ export class DashboardComponent implements OnInit {
 
   getBuscaHistorico(): void {
     this.setToObjectSearch();
-    console.log("FILTRO BUSCA => ", this.objetoBusca.autorizador);
-    setTimeout(() => {
+
+    // setTimeout(() => {
       this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
         this.listHistorico = result.data;
         console.log("HISTORICO RESULT => ", this.listHistorico);
       });
-    });
+    // });
   }
 
   verificarStorage(): void {
@@ -105,12 +105,24 @@ export class DashboardComponent implements OnInit {
   }
 
   setToObjectSearch(): void {
-    this.objetoBusca = {
-      dtInicio: this.searchHistorico.value.dtInicio ? this.getDate(this.searchHistorico.value.dtInicio) : null,
-      dtFim: this.searchHistorico.value.dtFim ? this.getDate(this.searchHistorico.value.dtFim) : null,
-      autorizador: this.searchHistorico.value.autorizador,
-    };
+    console.log(this.searchHistorico.value.autorizador);
+
+    this.objetoBusca.dtInicio = this.searchHistorico.value.dtInicio ?
+      this.getDate(this.searchHistorico.value.dtInicio) : null;
+
+    this.objetoBusca.dtFim = this.searchHistorico.value.dtFim ?
+      this.getDate(this.searchHistorico.value.dtFim) : null;
+
+    this.objetoBusca.autorizador = this.searchHistorico.value.autorizador;
+
+    // SALVANDO NO STORAGE
     this.objetosearch = this.objetoBusca;
+  }
+
+  changeEstado(val: any): void {
+    console.log(val);
+    this.objetoBusca.autorizador = val;
+    this.getBuscaHistorico();
   }
 
 }
