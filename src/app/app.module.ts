@@ -32,7 +32,7 @@ import {PrimeFacesModule} from "./shared/prime.faces.module";
 
         //SharedModule,
 
-        //ToastrModule.forRoot(),
+        // ToastrModule.forRoot(),
         //NgxCurrencyModule.forRoot(MASK_SAQUE),
         ModulesModule,
 

@@ -12,12 +12,26 @@ export class DashboardComponent implements OnInit {
 
   // MANIPULAÇÃO DO STORAGE DA BUSCA
   private static OBJETOSEARCH = 'searchHistorico';
+
   searchHistorico: FormGroup;
 
   autorizadorsSelect = [
     {label: 'TODOS', value: 0},
     {label: 'AM', value: 1},
     {label: 'BA', value: 2},
+    {label: 'CE', value: 3},
+    {label: 'GO', value: 4},
+    {label: 'MG', value: 5},
+    {label: 'MS', value: 6},
+    {label: 'MT', value: 7},
+    {label: 'PE', value: 8},
+    {label: 'PR', value: 9},
+    {label: 'RS', value: 10},
+    {label: 'SP', value: 11},
+    {label: 'SV-AN', value: 12},
+    {label: 'SV-RS', value: 13},
+    {label: 'SVC-AN', value: 14},
+    {label: 'SVC-RS', value: 15},
   ];
 
   dataAtual = new Date();
@@ -37,7 +51,7 @@ export class DashboardComponent implements OnInit {
     this.createForm();
     this.getBuscaHistorico();
 
-    this.searchHistorico.valueChanges.subscribe(() => {
+    this.searchHistorico.controls.autorizador.valueChanges.subscribe(() => {
       this.getBuscaHistorico();
     });
   }
@@ -62,9 +76,11 @@ export class DashboardComponent implements OnInit {
   getBuscaHistorico(): void {
     this.setToObjectSearch();
     console.log("FILTRO BUSCA => ", this.objetoBusca);
-    this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
-      this.listHistorico = result.data;
-      console.log("HISTORICO RESULT => ", this.listHistorico);
+    setTimeout(() => {
+      this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
+        this.listHistorico = result.data;
+        console.log("HISTORICO RESULT => ", this.listHistorico);
+      });
     });
   }
 
@@ -89,12 +105,16 @@ export class DashboardComponent implements OnInit {
   }
 
   setToObjectSearch(): void {
+
     this.objetoBusca = {
       dtInicio: this.searchHistorico.value.dtInicio ? this.getDate(this.searchHistorico.value.dtInicio) : null,
       dtFim: this.searchHistorico.value.dtFim ? this.getDate(this.searchHistorico.value.dtFim) : null,
       autorizador: this.searchHistorico.value.autorizador,
     };
     this.objetosearch = this.objetoBusca;
+
+    console.log("AUTORIZADOR=> ", this.searchHistorico.value.autorizador);
+    console.log("obj busca => ", this.objetoBusca);
   }
 
 }

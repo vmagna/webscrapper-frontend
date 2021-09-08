@@ -7,15 +7,18 @@
         <div class="p-col-12">
           <h3>Filtro por data:</h3>
         </div>
-        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-3">
+        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-2">
           <p-calendar inputId="dtInicio" id="dtInicio" [showTime]="true" timeZone="America/Sao_Paulo"
                       formControlName="dtInicio"></p-calendar>
           <label for="dtInicio">Data/ Hora início</label>
         </div>
-        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-3">
+        <div class="p-field p-float-label p-col-12 p-lg-3 p-xl-2">
           <p-calendar formControlName="dtFim" [showTime]="true" timeZone="America/Sao_Paulo"
                       inputId="dtFim" id="dtFim"></p-calendar>
           <label for="dtFim">Data/ Hora final</label>
+        </div>
+        <div class="p-col-12 p-lg-3 p-xl-2">
+          <p-button (click)="getBuscaHistorico()">Buscar</p-button>
         </div>
       </div>
     </div>
@@ -25,23 +28,37 @@
 
         <div class="p-col-12 p-lg-3 p-xl-3 card-background">
           <div class="p-field p-md-3" style="width:100%;">
-            <p-listbox [options]="autorizadorsSelect" formControlName="autorizador"></p-listbox>
+            <p-listbox [options]="autorizadorsSelect"
+                       formControlName="autorizador"></p-listbox>
           </div>
         </div>
 
         <div class="p-col-12 p-lg-9 p-xl-9 card-background">
-            <div class="p-grid">
-              <div *ngFor="let hist of listHistorico" class="p-col-12">
-                <span>{{hist.autorizador}}</span>&nbsp;
-                <span>{{hist.autorizacao4}}</span>&nbsp;
-                <span>{{hist.retornoAutorizacao4}}</span>&nbsp;
-                <span>{{hist.inutilizacao4}}</span>&nbsp;
-                <span>{{hist.consultaProtocolo4}}</span>&nbsp;
-                <span>{{hist.statusServico4}}</span>&nbsp;
-                <span>{{hist.tempoMedio}}</span>&nbsp;
-                <span>{{hist.consultaCadastro4}}</span>&nbsp;
-                <span>{{hist.recepcaoEventos4}}</span>&nbsp;
-                <span>{{hist.horaAtualizacao | date: 'dd/MM/yyyy HH:mm:ss'}}</span>&nbsp;
+          <div class="p-grid">
+            <div class="p-col-1">Autorizador</div>&nbsp;
+            <div class="p-col-1">Autorização 4</div>
+            <div class="p-col-1">Retorno Autorização 4</div>
+            <div class="p-col-1">Inutilização 4</div>
+            <div class="p-col-1">Consulta Protocolo 4</div>
+            <div class="p-col-1">Status Serviço 4</div>
+            <div class="p-col-1">Tempo Médio</div>
+            <div class="p-col-1">Consulta Cadastro 4</div>
+            <div class="p-col-1">Recepção Eventos 4</div>
+            <div class="p-col-1">Data/ Hora Atualização</div>
+          </div>
+          <div class="p-grid">
+              <div *ngFor="let hist of listHistorico"
+                   class="p-grid p-col-12">
+                <div class="p-col-1">{{hist.autorizador}}</div>&nbsp;
+                <div class="p-col-1"><span class="{{hist.autorizacao4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.retornoAutorizacao4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.inutilizacao4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.consultaProtocolo4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.statusServico4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.tempoMedio}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.consultaCadastro4}}"></span></div>
+                <div class="p-col-1"><span class="{{hist.recepcaoEventos4}}"></span></div>
+                <div class="p-col-1">{{hist.horaAtualizacao | date: 'dd/MM/yyyy HH:mm:ss'}}</div>
               </div>
             </div>
         </div>

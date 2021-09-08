@@ -24,3 +24,22 @@
 :host ::ng-deep .p-field {
   margin: 0;
 }
+
+.VERDE, .VAZIO, .VERMELHA {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.VERDE {
+  background: green;
+}
+
+.VAZIO {
+  background: #ccc;
+}
+
+.VERMELHO {
+  background: red;
+}
