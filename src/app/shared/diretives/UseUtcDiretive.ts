@@ -22,7 +22,9 @@ export class UseUtcDirective {
       0,
       0
     ));
+
     console.log('UTC -> ', this.calendar.value);
+
     this.calendar.updateModel(this.calendar.value);
   }
 }
