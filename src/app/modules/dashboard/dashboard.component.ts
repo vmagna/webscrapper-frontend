@@ -43,15 +43,25 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private dashboardService: DashboardService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
+    // SETAR VALORES PADRÃO DO FILTRO
     this.filtroPadrao();
+
+    // VERIFICAR SE EXISTE FILTRO NO STORAGE
     this.verificarStorage();
+
+    // CRIAR FORMULÁRIO
     this.createForm();
+
+    // REALIZAR PRIMEIRA BUSCA
     this.getBuscaHistorico();
 
-    this.searchHistorico.controls.autorizador.valueChanges.subscribe(() => {
+    // CHANGE VALUES SELECT LIST
+    this.searchHistorico.controls.autorizador.valueChanges.subscribe((newVal) => {
+      this.searchHistorico.value.autorizador = newVal;
       this.getBuscaHistorico();
     });
   }
@@ -67,7 +77,7 @@ export class DashboardComponent implements OnInit {
   filtroPadrao(): void {
     let dataAtual = new Date();
     this.objetoBusca = {
-      dtInicio:  new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 1),
+      dtInicio: new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 1),
       dtFim: new Date(),
       autorizador: this.autorizadorsSelect[0].value
     };
@@ -76,12 +86,15 @@ export class DashboardComponent implements OnInit {
   getBuscaHistorico(): void {
     this.setToObjectSearch();
 
-    // setTimeout(() => {
-      this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
-        this.listHistorico = result.data;
-        console.log("HISTORICO RESULT => ", this.listHistorico);
-      });
-    // });
+    this.objetoBusca.dtInicio = this.convertDate(this.objetoBusca.dtInicio, true);
+    this.objetoBusca.dtFim = this.convertDate(this.objetoBusca.dtFim, true);
+
+    console.log(this.objetoBusca.autorizador);
+
+    this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
+      this.listHistorico = result.data;
+      console.log("HISTORICO RESULT => ", this.listHistorico);
+    });
   }
 
   verificarStorage(): void {
@@ -100,19 +113,21 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  convertDate(dataRef: any, subtrair: any): any {
+    let data = new Date(dataRef);
+    let newDate = subtrair ? data.setHours(data.getHours() - 3) : data.setHours(data.getHours() + 3);
+    return new Date(newDate);
+  }
+
   getDate(date: any): string {
     return new Date(date).toISOString();
   }
 
   setToObjectSearch(): void {
-    console.log(this.searchHistorico.value.autorizador);
-
     this.objetoBusca.dtInicio = this.searchHistorico.value.dtInicio ?
       this.getDate(this.searchHistorico.value.dtInicio) : null;
-
     this.objetoBusca.dtFim = this.searchHistorico.value.dtFim ?
       this.getDate(this.searchHistorico.value.dtFim) : null;
-
     this.objetoBusca.autorizador = this.searchHistorico.value.autorizador;
 
     // SALVANDO NO STORAGE
