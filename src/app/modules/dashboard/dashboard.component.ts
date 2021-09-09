@@ -66,10 +66,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  /***
+   * FUNÇÕES PARA MANIPULAÇÃO DO STORAGE
+   */
   get objetosearch() {
     return sessionStorage.getItem(DashboardComponent.OBJETOSEARCH);
   }
-
   set objetosearch(objBusca: any) {
     sessionStorage.setItem(DashboardComponent.OBJETOSEARCH, JSON.stringify(objBusca));
   }
@@ -84,17 +86,29 @@ export class DashboardComponent implements OnInit {
   }
 
   getBuscaHistorico(): void {
+    // CONVERTER FORM PARA OBJETO DE BUSCA
     this.setToObjectSearch();
 
+    // TRATAMENTO DE DATAS PARA GMT -3
     this.objetoBusca.dtInicio = this.convertDate(this.objetoBusca.dtInicio, true);
     this.objetoBusca.dtFim = this.convertDate(this.objetoBusca.dtFim, true);
 
-    console.log(this.objetoBusca.autorizador);
-
+    // SEND REQUEST
     this.dashboardService.getHistoricoSearch(this.objetoBusca).subscribe(result => {
       this.listHistorico = result.data;
       console.log("HISTORICO RESULT => ", this.listHistorico);
     });
+  }
+
+  setToObjectSearch(): void {
+    this.objetoBusca.dtInicio = this.searchHistorico.value.dtInicio ?
+      this.getDate(this.searchHistorico.value.dtInicio) : null;
+    this.objetoBusca.dtFim = this.searchHistorico.value.dtFim ?
+      this.getDate(this.searchHistorico.value.dtFim) : null;
+    this.objetoBusca.autorizador = this.searchHistorico.value.autorizador;
+
+    // SALVANDO NO STORAGE
+    this.objetosearch = this.objetoBusca;
   }
 
   verificarStorage(): void {
@@ -121,23 +135,6 @@ export class DashboardComponent implements OnInit {
 
   getDate(date: any): string {
     return new Date(date).toISOString();
-  }
-
-  setToObjectSearch(): void {
-    this.objetoBusca.dtInicio = this.searchHistorico.value.dtInicio ?
-      this.getDate(this.searchHistorico.value.dtInicio) : null;
-    this.objetoBusca.dtFim = this.searchHistorico.value.dtFim ?
-      this.getDate(this.searchHistorico.value.dtFim) : null;
-    this.objetoBusca.autorizador = this.searchHistorico.value.autorizador;
-
-    // SALVANDO NO STORAGE
-    this.objetosearch = this.objetoBusca;
-  }
-
-  changeEstado(val: any): void {
-    console.log(val);
-    this.objetoBusca.autorizador = val;
-    this.getBuscaHistorico();
   }
 
 }
