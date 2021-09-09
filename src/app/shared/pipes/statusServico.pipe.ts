@@ -12,7 +12,7 @@ export class StatusServicoPipe implements PipeTransform {
     console.log(value, args);
 
     if (value === 'VERDE') {
-      return "<span class='VERDE'></span>"
+      return "<span class='VERDE'></span>";
     }
 
     return this._sanitizer.bypassSecurityTrustResourceUrl(value);
