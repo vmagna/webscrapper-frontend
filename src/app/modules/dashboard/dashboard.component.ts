@@ -11,7 +11,7 @@ import {DashboardService} from "./dashboard.service";
 export class DashboardComponent implements OnInit {
 
   // MANIPULAÇÃO DO STORAGE DA BUSCA
-  private static OBJETOSEARCH = 'searchHistorico';
+  private static OBJETOSEARCH = 'searchDashboardComponent';
 
   searchHistorico: FormGroup;
 

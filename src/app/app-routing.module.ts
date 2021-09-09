@@ -14,6 +14,11 @@ const routes: Routes = [
         component: DashboardComponent,
         data: {title: 'Dashboard', path: 'dashboard'},
       },
+      {
+        path: 'historico',
+        data: {title: 'Histórico', path: 'historico'},
+        loadChildren: () => import('./modules/historicos/historicos.module').then(m => m.HistoricosModule),
+      },
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     ]
   },
