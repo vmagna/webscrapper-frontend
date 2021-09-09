@@ -3,6 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TitleCardModule } from './components/title-card/title.card.module';
 import { PrimeFacesModule } from './prime.faces.module';
+import {StatusServicoPipe} from "./pipes/statusServico.pipe";
 
 // COMPONENTES COMPARTILHADOS AQUI..
 const componentsModules = [
@@ -16,13 +17,16 @@ const componentsModules = [
     FormsModule,
     ...componentsModules,
   ],
-  declarations: [],
+  declarations: [
+    StatusServicoPipe
+  ],
   exports: [
     PrimeFacesModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ...componentsModules
+    ...componentsModules,
+    StatusServicoPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
